@@ -72,8 +72,13 @@ class _ContactCardState extends State<ContactCard> {
 
     return Row(
       children: <Widget>[
-        const CircleAvatar(
-          child: Icon(Icons.account_circle),
+        GestureDetector(
+          onTap: () {
+            print("Imagen tocada");
+          },
+          child: const CircleAvatar(
+            child: Icon(Icons.account_circle),
+          ),
         ),
         userInfo,
       ],

@@ -17,27 +17,52 @@ class ProfilesPage extends StatefulWidget {
 
 class _ProfilesPageState extends State<ProfilesPage> {
   // Api manamegent
-  late List<User>? users;
+  late List<User?> users;
   bool loaded = false;
   List<String> items = [];
   int status = 0;
   bool web = false;
 
+  //Scroll Integration
+  final controller = ScrollController();
+  int page = 1;
+
+  bool hasmore = true;
+
   @override
   void initState() {
     super.initState();
     getData();
+
+    controller.addListener(() {
+      if (controller.position.maxScrollExtent == controller.offset) {
+        getData();
+      }
+    });
   }
 
-  getData() async {
-    users = await RemoteService().getUsers();
+  @override
+  void dispose() {
+    super.dispose();
+  }
+
+  Future getData() async {
+    const limited = 15;
+
     status = await RemoteService().getStus();
 
     if (status == 200) {
+      users = (await RemoteService().getUsers())!;
+
       if (users != null) {
         setState(() {
+          page++;
           loaded = true;
           web = true;
+
+          if (users.length < limited) {
+            hasmore = false;
+          }
         });
       }
     } else {
@@ -58,16 +83,28 @@ class _ProfilesPageState extends State<ProfilesPage> {
             child: web
                 ? loaded
                     ? ListView.builder(
-                        itemCount: users?.length,
+                        controller: controller,
+                        itemCount: users.length + 1,
                         itemBuilder: (context, index) {
-                          return Container(
-                              margin:
-                                  const EdgeInsets.only(top: 20.0, left: 20.0),
-                              child: ContactCard(
-                                  users![index].name,
-                                  users![index].phone.toString(),
-                                  users![index].company.name,
-                                  users![index].email));
+                          if (index < users.length) {
+                            return Container(
+                                margin: const EdgeInsets.only(
+                                    top: 20.0, left: 20.0),
+                                child: ContactCard(
+                                    users[index]!.name,
+                                    users[index]!.phone.toString(),
+                                    users[index]!.company.name,
+                                    users[index]!.email));
+                          } else {
+                            return Padding(
+                              padding: const EdgeInsets.symmetric(vertical: 30),
+                              child: Center(
+                                child: hasmore
+                                    ? const CircularProgressIndicator()
+                                    : const Text('No More Data To Load'),
+                              ),
+                            );
+                          }
                         })
                     : const CircularProgressIndicator()
                 : /* Here local Json reading*/ CircularProgressIndicator()));
