@@ -1,8 +1,8 @@
-# Profiles
+# Profiles:
 
 Flutter Project that list data.
 
-## About
+## About:
  
  In this app we consume data from the api https://jsonplaceholder.typicode.com/users and we display it in a list.
 
@@ -11,7 +11,7 @@ Flutter Project that list data.
 ```
 flutter run
 ```
-## Version
+## Version:
 
 Flutter 3.3.5
 
