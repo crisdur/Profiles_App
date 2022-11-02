@@ -1,16 +1,17 @@
-# profiles
+# Profiles
 
-A new Flutter project.
+Flutter Project that list data.
 
-## Getting Started
+## About
+ 
+ In this app we consume data from the api https://jsonplaceholder.typicode.com/users and we display it in a list.
 
-This project is a starting point for a Flutter application.
+## This Projects runs with the command:
 
-A few resources to get you started if this is your first Flutter project:
+```
+flutter run
+```
+## Version
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+Flutter 3.3.5
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
