@@ -8,9 +8,9 @@ Flutter Project that list data.
  
 ## Screenshots:
 
-<img width="344" alt="Captura de pantalla 2023-07-28 a la(s) 11 46 10 p m" src="https://github.com/crisdur/Profiles_App/assets/48272016/8d3bbfbb-dd28-47b3-998c-d3109ba0aeee">
+![199571131-50914ebe-4224-44a5-8ff6-da4736d33cad](https://github.com/crisdur/Profiles_App/assets/48272016/892d5791-0b60-4328-a1a7-d99e0b468210)
+![199571146-e7a86669-ed49-4abc-af52-a8cc5d054abd](https://github.com/crisdur/Profiles_App/assets/48272016/af52f0e2-1e8b-4060-be08-233a5903d657)
 
-<img width="358" alt="Captura de pantalla 2023-07-28 a la(s) 11 45 53 p m" src="https://github.com/crisdur/Profiles_App/assets/48272016/1a3295cf-c69f-48fa-93b8-dbff2ad889fe">
 
 
 ## This Projects runs with the command:
